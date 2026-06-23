@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14 фокусов языка НЛП – Почему работает</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #f8f6f3;
+      color: #1e1e2a;
+      padding: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+      color: #1e2a3a;
+    }
+    .subhead {
+      color: #4a5a6a;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.75rem;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 2rem;
+      background: #fff;
+      padding: 12px 16px;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .nav a {
+      text-decoration: none;
+      color: #1e2a3a;
+      background: #ecf0f1;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav a:hover {
+      background: #d0d7dd;
+    }
+    .focus-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border-left: 6px solid #2c3e50;
+      scroll-margin-top: 20px;
+    }
+    .focus-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .focus-card .short {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #4a5a6a;
+      margin-bottom: 12px;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .badge {
+      background: #ecf0f1;
+      padding: 2px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: #2c3e50;
+    }
+    .badge.time-future { background: #f0e6d5; }
+    .badge.time-present { background: #d5e0f0; }
+    .badge.time-past { background: #d5e8d5; }
+    .badge.time-transcend { background: #e8d5f0; }
+    .badge.logic-meta { background: #f0d5e8; }
+    .badge.logic-deduction { background: #d5e0f0; }
+    .badge.logic-induction { background: #d5f0e0; }
+    .badge.logic-traduction { background: #f0ecd5; }
+    .badge.purpose-reinforce { background: #f0d5d5; }
+    .badge.purpose-weaken { background: #d5f0e8; }
+    .badge.purpose-switch { background: #d5d5f0; }
+
+    .why-block {
+      background: #f0f4f8;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 12px 0 16px;
+      border-left: 4px solid #2c3e50;
+    }
+    .why-block h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #2c3e50;
+      margin-bottom: 6px;
+    }
+    .why-block p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+
+    .extra {
+      margin-top: 12px;
+    }
+    .extra summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #2c3e50;
+      padding: 6px 0;
+    }
+    .extra summary:hover {
+      color: #1a2633;
+    }
+    .extra-content {
+      padding: 12px 0 4px;
+    }
+    .extra-content ul {
+      padding-left: 20px;
+      margin: 6px 0;
+    }
+    .extra-content li {
+      margin-bottom: 4px;
+    }
+    .question-list {
+      columns: 1;
+      list-style: none;
+      padding-left: 0;
+    }
+    .question-list li {
+      padding: 4px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .question-list li::before {
+      content: "❓ ";
+      font-weight: 300;
+    }
+    .example-box {
+      background: #f9f7f5;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin: 8px 0;
+      font-style: italic;
+      border-left: 4px solid #b0b8c0;
+    }
+    .example-box strong {
+      font-style: normal;
+      color: #2c3e50;
+    }
+    .exercise-item {
+      background: #eaf4e8;
+      padding: 10px 16px;
+      border-radius: 12px;
+      margin: 6px 0;
+    }
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: #6a7a8a;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1.5rem;
+    }
+    @media (max-width: 600px) {
+      body { padding: 12px; }
+      .focus-card { padding: 16px; }
+      .nav a { font-size: 0.75rem; padding: 3px 10px; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 14 фокусов языка НЛП</h1>
+  <div class="subhead">Полный блок «Почему работает» – когнитивные механизмы каждого паттерна</div>
+
+  <!-- Навигация по якорям -->
+  <nav class="nav" id="topNav">
+    <a href="#intention">Намерение</a>
+    <a href="#consequences">Последствия</a>
+    <a href="#result">Результат</a>
+    <a href="#model_world">Модель мира</a>
+    <a href="#division">Разделение</a>
+    <a href="#unification">Объединение</a>
+    <a href="#analogy">Аналогия</a>
+    <a href="#frame_shift">Смена фрейма</a>
+    <a href="#redefinition">Переопределение</a>
+    <a href="#counterexample">Противопр. пример</a>
+    <a href="#reality_strategy">Стратегия реальности</a>
+    <a href="#criteria_hierarchy">Иерархия критериев</a>
+    <a href="#apply_to_self">Применение к себе</a>
+    <a href="#metaframe">Метафрейм</a>
+  </nav>
+
+  <!-- ========== ДАННЫЕ ========== -->
+  <!-- Каждый фокус – это section с id и class focus-card -->
+  <!-- Ниже встроим все 14 фокусов с полными блоками "Почему работает" и дополнительными полями (свёрнутыми) -->
+
+  <section class="focus-card" id="intention">
+    <h2>Намерение <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Intention)</span></h2>
+    <div class="short">Отделяем поведение от мотива</div>
+    <div class="badges">
+      <span class="badge time-future">Будущее</span>
+      <span class="badge logic-meta">Мета</span>
+      <span class="badge purpose-reinforce">Усилить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Разделение поведения и мотивации позволяет обойти защитные механизмы. Мозг перестаёт защищать действие (которое может быть неэтичным или вредным) и переключается на исследование потребности. Это активирует <strong>префронтальную кору</strong> (отвечает за планирование и понимание смысла) и снижает активность <strong>амигдалы</strong> (центр страха), так как угроза перестаёт быть личной. Человек чувствует, что его понимают, и открывается к диалогу.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Что для тебя важно, когда ты это делаешь?</li>
+          <li>Какую потребность ты удовлетворяешь этим действием?</li>
+          <li>Что это даёт тебе на самом деле?</li>
+          <li>Какая позитивная цель стоит за этим поведением?</li>
+          <li>Если бы ты мог получить то же самое другим способом, что бы ты выбрал?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Прокрастинация:</strong><br>
+          «— Я откладываю отчёты до последнего. — Что для тебя важно, когда ты откладываешь? — Избегаю стресса. — То есть ты хочешь спокойствия. Как ещё можно получить спокойствие, не откладывая дела?»
+        </div>
+        <p><strong>Упражнение:</strong> «Сними слой» – задавай вопрос «Что для тебя важно?» 5 раз подряд, пока не выйдешь на базовую ценность.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="consequences">
+    <h2>Последствия <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Consequences)</span></h2>
+    <div class="short">Показываем цену выбора во времени</div>
+    <div class="badges">
+      <span class="badge time-future">Будущее</span>
+      <span class="badge logic-deduction">Дедукция</span>
+      <span class="badge purpose-reinforce">Усилить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Будущие сценарии активируют центры планирования в <strong>дорсолатеральной префронтальной коре</strong>. Когда человек ярко представляет негативный исход, его мозг начинает искать пути избегания (активация системы избегания боли). Одновременно позитивные сценарии активируют <strong>дофаминовые пути</strong>, связанные с вознаграждением. Это создаёт мотивационный конфликт, который разрешается пересмотром текущего поведения.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Что будет, если ты продолжишь это делать через год?</li>
+          <li>Что хорошего и что плохого произойдёт, если ты изменишь?</li>
+          <li>Как это повлияет на твоих близких?</li>
+          <li>Что ты потеряешь, если оставишь всё как есть?</li>
+          <li>Что ты выиграешь, если начнёшь действовать иначе?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Курение:</strong><br>
+          «— Я не могу бросить курить. — Что будет с твоим здоровьем через 10 лет? Что скажут твои дети, когда ты не сможешь играть с ними? — Я не хочу, чтобы они видели меня больным... — Что бы ты хотел для них вместо этого?»
+        </div>
+        <p><strong>Упражнение:</strong> «Два сценария» – напиши подробно, что будет через 2 года, если ничего не изменишь, и что будет, если изменишь.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="result">
+    <h2>Результат (Другой результат) <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Another Outcome)</span></h2>
+    <div class="short">Переключаем с проблемы на цель</div>
+    <div class="badges">
+      <span class="badge time-present">Настоящее</span>
+      <span class="badge logic-induction">Индукция</span>
+      <span class="badge purpose-switch">Переключить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Переключение с проблемы на цель активирует <strong>систему вознаграждения</strong> (прилежащее ядро) и снижает активность <strong>миндалины</strong>, ответственной за страх. Мозг начинает генерировать варианты, а не искать препятствия. Этот сдвиг создаёт ощущение контроля и повышает <strong>самоэффективность</strong> (веру в свои способности).</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Что бы ты хотел вместо этого?</li>
+          <li>Как ты поймёшь, что достиг желаемого?</li>
+          <li>Что тебе нужно для достижения?</li>
+          <li>Какой первый шаг можно сделать уже сегодня?</li>
+          <li>Что изменится в твоей жизни, когда ты достигнешь этого?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Страх публичных выступлений:</strong><br>
+          «— Я боюсь выступать на публике. — А как бы ты хотел чувствовать себя во время выступления? Какую реакцию слушателей ты хотел бы видеть? — Я хочу спокойствия и чтобы они улыбались. — Что ты можешь сделать уже сейчас, чтобы приблизиться к этому?»
+        </div>
+        <p><strong>Упражнение:</strong> «Переключи вопрос» – возьми 5 своих жалоб и переформулируй их как цели.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="model_world">
+    <h2>Модель мира <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Model of the World)</span></h2>
+    <div class="short">Показываем, что это лишь одна из карт</div>
+    <div class="badges">
+      <span class="badge time-present">Настоящее</span>
+      <span class="badge logic-deduction">Дедукция</span>
+      <span class="badge purpose-weaken">Ослабить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Напоминание о субъективности восприятия активирует <strong>теменные доли</strong>, отвечающие за перспективу и понимание чужих намерений. Это снижает <strong>эгоцентрическую предвзятость</strong> и создаёт <strong>когнитивную гибкость</strong>. Человек видит, что его правда — не единственная, что ослабляет жёсткую привязку к убеждению и снижает эмоциональный накал.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>В какой модели мира это утверждение верно?</li>
+          <li>А есть ли модель, где оно не работает?</li>
+          <li>Как бы на это посмотрел человек с другим опытом?</li>
+          <li>Где это может быть преимуществом?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Несправедливость на работе:</strong><br>
+          «— Меня не ценят. — А как бы это увидел кто-то со стороны? Может, он сказал бы, что ты просто не проявил себя?»
+        </div>
+        <p><strong>Упражнение:</strong> «Три очка зрения» – опиши ситуацию с твоей точки зрения, с точки зрения другого человека и со стороны.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="division">
+    <h2>Разделение <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Division)</span></h2>
+    <div class="short">Разбиваем проблему на части</div>
+    <div class="badges">
+      <span class="badge time-past">Прошлое</span>
+      <span class="badge logic-induction">Индукция</span>
+      <span class="badge purpose-weaken">Ослабить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Мозг не может одновременно удерживать целостную угрозу и её части. Разбивка снижает эмоциональный заряд, потому что каждая часть кажется более управляемой. Это связано с работой <strong>рабочей памяти</strong> — её ограниченный объём (4–5 элементов) позволяет обрабатывать части по отдельности, снижая перегрузку и тревогу.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Из каких частей состоит эта проблема?</li>
+          <li>Какая часть вызывает самый сильный страх?</li>
+          <li>Можно ли разбить это на шаги?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Страх выступления:</strong><br>
+          «— Я боюсь публичных выступлений. — Какая именно часть пугает: подготовка, выход на сцену, ответы на вопросы? — Больше всего ответы на вопросы. — Давай разберём это отдельно...»
+        </div>
+        <p><strong>Упражнение:</strong> Выбери сложную задачу и разбей её на 5 простых шагов.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="unification">
+    <h2>Объединение <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Unification)</span></h2>
+    <div class="short">Включаем проблему в более широкий контекст</div>
+    <div class="badges">
+      <span class="badge time-past">Прошлое</span>
+      <span class="badge logic-induction">Индукция</span>
+      <span class="badge purpose-switch">Переключить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Включение проблемы в более широкий контекст уменьшает её значимость благодаря <strong>эффекту масштаба</strong>. Мозг переключается с «это всё» на «это лишь часть», что активирует <strong>сеть пассивного режима</strong> (отвечает за связи между разными областями опыта) и снижает активность <strong>островковой коры</strong> (восприятие боли и дискомфорта).</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Частью чего более крупного является эта ситуация?</li>
+          <li>Что ещё входит в этот контекст?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Ошибка в проекте:</strong><br>
+          «— Я допустил ошибку в расчётах. — Но ты же сейчас ведёшь большой проект, и ошибка — это часть обучения. Давай посмотрим, что в этом проекте уже получилось хорошо.»
+        </div>
+        <p><strong>Упражнение:</strong> Возьми проблему и найди 3 более широких контекста, в которые она вписывается.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="analogy">
+    <h2>Аналогия <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Analogy)</span></h2>
+    <div class="short">Используем образ из другой сферы</div>
+    <div class="badges">
+      <span class="badge time-past">Прошлое</span>
+      <span class="badge logic-induction">Индукция</span>
+      <span class="badge purpose-switch">Переключить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Аналогия активирует старые нейронные связи (перенос знаний). При этом активируются те же области, что и при решении исходной задачи, но с использованием уже знакомых паттернов. Это создаёт чувство «я уже знаю, как это делается», что снижает тревогу благодаря работе <strong>медиальной префронтальной коры</strong> и <strong>гиппокампа</strong> (извлечение памяти).</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>На что это похоже?</li>
+          <li>С чем можно это сравнить?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Работа над проектом:</strong><br>
+          «— Этот проект кажется мне непосильным. — На что это похоже? — Как восхождение на гору. — В восхождении нужно разбить маршрут на этапы и проверять снаряжение. Может, так же подойти к проекту?»
+        </div>
+        <p><strong>Упражнение:</strong> Подбери метафору к своей текущей жизненной ситуации и проанализируй, что она открывает.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="frame_shift">
+    <h2>Изменение размера фрейма <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Frame Shift)</span></h2>
+    <div class="short">Меняем временные или контекстуальные границы</div>
+    <div class="badges">
+      <span class="badge time-future">Будущее</span>
+      <span class="badge logic-traduction">Традукция</span>
+      <span class="badge purpose-switch">Переключить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Расширение или сужение временных или пространственных границ меняет оценку события за счёт <strong>эффекта дистанцирования</strong>. Отдалённая перспектива снижает остроту эмоций, так как активируются зоны мозга, отвечающие за абстрактное мышление (префронтальная кора), и подавляются зоны, отвечающие за немедленную реакцию (лимбическая система). Близкая перспектива, наоборот, повышает значимость.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Как это будет выглядеть через 5 лет?</li>
+          <li>Насколько это важно в масштабах всей жизни?</li>
+          <li>Как бы это видел человек через 100 лет?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Страх ошибки:</strong><br>
+          «— Я боюсь ошибиться и выглядеть глупо. — Представь, что эта ошибка случилась с тобой 5 лет назад. Она всё ещё имеет значение сегодня?»
+        </div>
+        <p><strong>Упражнение:</strong> Возьми текущую проблему и представь её через 1 год, 5 лет и 10 лет.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="redefinition">
+    <h2>Переопределение <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Redefinition)</span></h2>
+    <div class="short">Меняем смысл через замену слов</div>
+    <div class="badges">
+      <span class="badge time-future">Будущее</span>
+      <span class="badge logic-induction">Индукция</span>
+      <span class="badge purpose-switch">Переключить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Слова связаны с эмоциями через личный опыт (семантическая память). Замена слова меняет эмоциональную оценку, так как активируются <strong>различные нейронные сети</strong> для разных слов. Это одна из самых быстрых техник, так как задействует <strong>левую височную долю</strong> (обработка языка) и <strong>орбитофронтальную кору</strong> (эмоциональная оценка). Факт остаётся тем же, но смысл меняется.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Как ещё можно назвать это?</li>
+          <li>Какое слово точнее описывает эту ситуацию?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Конфликт с коллегой:</strong><br>
+          «— Мы постоянно спорим. — То есть вы горячо обсуждаете рабочие вопросы?»
+        </div>
+        <p><strong>Упражнение:</strong> Для 3 своих привычных проблем найди по 2 альтернативных названия, которые меняют оценку.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="counterexample">
+    <h2>Противоположный пример <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Counterexample)</span></h2>
+    <div class="short">Ищем исключение из правила</div>
+    <div class="badges">
+      <span class="badge time-present">Настоящее</span>
+      <span class="badge logic-induction">Индукция</span>
+      <span class="badge purpose-weaken">Ослабить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Обобщения («всегда», «никто») не выдерживают проверки конкретными исключениями. Это вызывает <strong>когнитивный диссонанс</strong> (несоответствие между убеждением и реальностью). Для его разрешения мозг вынужден скорректировать правило, и активность в <strong>передней поясной коре</strong> сигнализирует о конфликте, что ведёт к пересмотру убеждения.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Было ли когда-нибудь иначе?</li>
+          <li>А есть ли случай, где это не работает?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Самооценка:</strong><br>
+          «— Я всегда неудачник. — А помнишь, как ты выиграл в школьной олимпиаде?»
+        </div>
+        <p><strong>Упражнение:</strong> Вспомни 3 своих убеждения и найди по 2 исключения для каждого.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="reality_strategy">
+    <h2>Стратегия реальности <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Reality Strategy)</span></h2>
+    <div class="short">Проверяем факты vs интерпретации</div>
+    <div class="badges">
+      <span class="badge time-present">Настоящее</span>
+      <span class="badge logic-traduction">Традукция</span>
+      <span class="badge purpose-weaken">Ослабить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Отделение фактов от интерпретаций опирается на <strong>дорсолатеральную префронтальную кору</strong> (критическое мышление). Это ослабляет эмоциональное влияние <strong>амигдалы</strong> и возвращает человека в реальность. Требование фактов заставляет мозг переключиться с эмоционального центра на рациональный.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Что именно произошло на самом деле?</li>
+          <li>Какие факты подтверждают это?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Конфликт:</strong><br>
+          «— Меня никто не любит. — Кто именно тебе это сказал? Или это твой вывод?»
+        </div>
+        <p><strong>Упражнение:</strong> Запиши 3 убеждения и факты, которые их подтверждают или опровергают.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="criteria_hierarchy">
+    <h2>Иерархия критериев <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Criteria Hierarchy)</span></h2>
+    <div class="short">Смещаем фокус на более важные ценности</div>
+    <div class="badges">
+      <span class="badge time-future">Будущее</span>
+      <span class="badge logic-deduction">Дедукция</span>
+      <span class="badge purpose-reinforce">Усилить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Обращение к высшим ценностям активирует более глубокие структуры личности, связанные с <strong>медиальной префронтальной корой</strong> (саморефлексия и идентичность). Текущее убеждение теряет приоритет перед более важными целями, и человек начинает действовать из высших ценностей, что активирует <strong>дофаминовые пути</strong> долгосрочного вознаграждения.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Что для тебя важнее всего в этой ситуации?</li>
+          <li>Какая ценность ещё более значима?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Страх открыть бизнес:</strong><br>
+          «— Я боюсь открыть бизнес. — А что для тебя важнее: этот страх или возможность обеспечить будущее своей семьи?»
+        </div>
+        <p><strong>Упражнение:</strong> Составь свою иерархию ценностей (от самой важной к менее важным).</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="apply_to_self">
+    <h2>Применение к себе <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Apply to Self)</span></h2>
+    <div class="short">Применяем правило к самому себе</div>
+    <div class="badges">
+      <span class="badge time-past">Прошлое</span>
+      <span class="badge logic-deduction">Дедукция</span>
+      <span class="badge purpose-weaken">Ослабить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Зеркальное отражение правила на самого говорящего создаёт <strong>когнитивный диссонанс</strong>, особенно если правило противоречит поведению. Для его разрешения человек вынужден либо изменить правило, либо признать его несправедливость. Этот процесс активирует <strong>островковую кору</strong> (самовосприятие) и <strong>переднюю поясную кору</strong> (обнаружение ошибок).</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Это правило применимо только к другим или к тебе тоже?</li>
+          <li>Если ты так считаешь, почему сам так не делаешь?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Критика других:</strong><br>
+          «— Люди не должны опаздывать. — А ты сам всегда приходишь вовремя?»
+        </div>
+        <p><strong>Упражнение:</strong> Сформулируй правило, которое ты применяешь к другим, и проверь, как оно работает на тебе.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="focus-card" id="metaframe">
+    <h2>Метафрейм <span style="font-size:0.9rem; font-weight:400; color:#4a5a6a;">(Metaframe)</span></h2>
+    <div class="short">Выходим на уровень наблюдателя</div>
+    <div class="badges">
+      <span class="badge time-transcend">4 Дальше</span>
+      <span class="badge logic-meta">Мета</span>
+      <span class="badge purpose-switch">Переключить</span>
+    </div>
+    <div class="why-block">
+      <h3>🧠 Почему работает</h3>
+      <p>Выход на уровень наблюдения за собственным мышлением активирует <strong>мета-познание</strong> (способность размышлять о своих мыслях). Это задействует <strong>дорсолатеральную префронтальную кору</strong> и <strong>теменные доли</strong>, позволяя человеку увидеть убеждение как объект, а не как истину. Это даёт свободу его изменить, так как снижается эмоциональная вовлечённость.</p>
+    </div>
+    <details class="extra">
+      <summary>📌 Ключевые вопросы, примеры, упражнения</summary>
+      <div class="extra-content">
+        <p><strong>Вопросы:</strong></p>
+        <ul class="question-list">
+          <li>Что ты думаешь о самом этом убеждении?</li>
+          <li>Помогает ли оно тебе жить?</li>
+          <li>Если бы ты смотрел на это со стороны, что бы ты увидел?</li>
+        </ul>
+        <p><strong>Пример:</strong></p>
+        <div class="example-box">
+          <strong>Сложность изменений:</strong><br>
+          «— Мне сложно менять убеждения. — А это убеждение о том, что сложно меняться, можно изменить?»
+        </div>
+        <p><strong>Упражнение:</strong> Запиши убеждение и посмотри на него «сверху», как на объект – что ты видишь?</p>
+      </div>
+    </details>
+  </section>
+
+  <div class="footer">
+    🧠 НЛП-Навигатор • Все 14 фокусов языка • Блок «Почему работает»
+  </div>
+
+  <script>
+    // Плавный скролл к якорям
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
